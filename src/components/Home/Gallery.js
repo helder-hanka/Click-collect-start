@@ -10,7 +10,6 @@ const styles = {
     }
 }
 
-// main
 function Gallery({ category }) {
   let array = [];
   const { filtersChecked } = React.useContext(Context);

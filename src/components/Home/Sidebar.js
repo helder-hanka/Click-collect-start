@@ -1,7 +1,6 @@
 import React from 'react'
 import Filters from './Filters'
 
-// sidebar
 function Sidebar({ categories, filters }) {
     return(
     <div className="col-md-4 order-md-1 col-lg-3 sidebar-filter">

@@ -11,16 +11,10 @@ import { resetCart } from "../../lib/redux/reducers/cart"
 import { ADD_ORDER } from '../../lib/queries'
 import { nextDaydelivery } from './utils'
 
-const styles = {
-  width: "100%",
-  shape: "rect",
-  size: "large",
-  color: "gold",
-};
 const client = {
   sandbox: "AchfwJ0khH6UFfWnhn2abe2HiFGpVk9xduqVM7PBtLEIKxUTdxDmIFPULnKCboSYHragHoROUNN_q9uC",
   production: "<ClientID>",
-  env: "sandbox" /* change to 'production' for production purposes */
+  env: "sandbox"
 };
 
 const STATUS = {
@@ -38,7 +32,7 @@ function Payment({ history }) {
   const { current } = useSelector( state => state.user )
   const dispatch = useDispatch()
 
-  const [mutation, loading] = useMutation(ADD_ORDER)
+  const [ mutation ] = useMutation(ADD_ORDER)
 
   const [isValid, setIsValid] = useState(false)
   const [status, setStatus] = useState(STATUS.PENDING);
@@ -75,7 +69,7 @@ function Payment({ history }) {
   const confirmOrder = () => {
     return new Promise((resolve) => {
       setStatus(STATUS.CONFIRMED);
-      // reset cart
+
       dispatch(resetCart())
       resolve();
     })
@@ -88,12 +82,10 @@ function Payment({ history }) {
     await addOrder();
     await confirmOrder();
     await scrolltoTop();
-    // history push
     setTimeout(() => history.push('/'), 3000)
   };
 
   const onSuccess = async (payment) => { 
-    // console.log("The payment was succeeded!", payment);
     await processPayment(payment);
     setStatus(STATUS.COMPLETE)
   };
@@ -113,7 +105,6 @@ function Payment({ history }) {
   return (
     <section className="pt-5 pb-5">
         <div className="container">
-          {/* success banner */}
           <Alert.Confirmed status={status === STATUS.COMPLETE} />
           <Alert.Cancelled status={status === STATUS.CANCELLED} />
           <Alert.Error status={status === STATUS.FAILED} />
@@ -164,7 +155,6 @@ function Payment({ history }) {
                   Security code required
                   </Input>
                 </div>
-                {/* Paypal button */}
                 <PaypalExpressBtn env={client.env} client={client} currency="EUR" total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
                 <hr className="mb-4" />
                 <button className="btn btn-primary btn-lg btn-block" type="submit" disabled={ !isValid }><i className="far fa-credit-card"></i> Confirmer</button>

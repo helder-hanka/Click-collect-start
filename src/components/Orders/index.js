@@ -7,7 +7,7 @@ import Row from "./Row";
 
 function Orders() {
   const { current } = useSelector(state => state.user)
-  const { loading, error, data } = useQuery(GET_ORDERS, {variables: {ownerId: current?.googleId}});
+  const { data } = useQuery(GET_ORDERS, {variables: {ownerId: current?.googleId}});
   const items = data?.orders
   return (
     <Table heading="My Orders" subheading="orders in your account" items={items}>

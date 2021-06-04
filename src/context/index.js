@@ -30,7 +30,7 @@ const FiltersProvider = ({ children }) => {
             updateFilters,
             filtersChecked: filtersKeys()
         }
-    }, [category, filtersChecked, categories])
+    }, [category, filtersChecked, categories, filters])
     return <Context.Provider value={value}> {children} </Context.Provider>
 }
 

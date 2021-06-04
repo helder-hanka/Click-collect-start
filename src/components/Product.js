@@ -42,16 +42,16 @@ function Product({ location: { props: {product}}}) {
               <p>Suspendisse cursus erat sed sem sagittis cursus. Etiam porta sem malesuada magna mollis euismod.</p>
               <div className="row mt-4">
                 <div className="col-6">
-                  <label for="size">Size</label>
+                  <label htmlFor="size">Size</label>
                   <select value={details.size} name="size" id="size" className="custom-select form-control  mb-4" onChange={handleOnChange}>
-                    <option selected="">Size</option>
+                    <option value="size">Size</option>
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
                     <option value="large">Large</option>
                   </select>
                 </div>
                 <div className="col-6">
-                  <label for="quantity">Quantity:</label>
+                  <label htmlFor="quantity">Quantity:</label>
                   <input value={details.quantity} id="quantity" name="quantity" type="number" className="form-control quantity  mb-4" onChange={handleOnChange} />
                 </div>
               </div>

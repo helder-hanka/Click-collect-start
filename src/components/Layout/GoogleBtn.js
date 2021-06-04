@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { handleErrors, handleLogin, handleLogout } from "../../lib/redux/reducers/user"
@@ -19,18 +19,12 @@ const styles = {
 
 const GoogleBtn = () => {
   const CLIENT_ID = "1081429161483-bg6td5lc3lij9jj3lmsqudoc8et426vi.apps.googleusercontent.com";
-//   const current = null;
-//   const [current, setCurrent] = useState(null)
     const dispatch = useDispatch()
-    const { current, error } = useSelector( (state) => state.user) 
+    const { current } = useSelector( (state) => state.user) 
   const handleLoginSuccess = (response) => {
-      // console.log(response);
-    //   setCurrent(response)
     dispatch(handleLogin(response))
     };
   const handleLogoutSuccess = (response) => {
-      // console.log(response)
-    //   setCurrent(null)
     dispatch(handleLogout())
     };
   const handleLoginFailure = (response) => {
