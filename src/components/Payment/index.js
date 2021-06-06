@@ -12,7 +12,7 @@ import { ADD_ORDER } from '../../lib/queries'
 import { nextDaydelivery } from './utils'
 
 const client = {
-  sandbox: "AchfwJ0khH6UFfWnhn2abe2HiFGpVk9xduqVM7PBtLEIKxUTdxDmIFPULnKCboSYHragHoROUNN_q9uC",
+  sandbox: `${process.env.REACT_APP_SADNBOX}`,
   production: "<ClientID>",
   env: "sandbox"
 };
