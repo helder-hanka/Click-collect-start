@@ -17,7 +17,7 @@ function Card({ product }) {
                       }}  
                       className=" font-weight-bold text-dark text-uppercase small">{name}</Link>
                 </h4>
-                <h5 className="card-price small text-warning">{price}</h5>
+                <h5 className="card-price small text-warning">{price} €</h5>
                 </div>
             </div>
         </div>

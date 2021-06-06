@@ -25,7 +25,7 @@ function Row({ id, name, price, quantity }) {
             </div>
           </div>
         </td>
-        <td data-th="Price">${(price * quantity).toFixed(2)}</td>
+        <td data-th="Price">{(price * quantity).toFixed(2)} €</td>
         <td data-th="Quantity">
           <input type="number" className="form-control form-control-lg text-center" onChange={handleChange} value={quantity}  />
         </td>

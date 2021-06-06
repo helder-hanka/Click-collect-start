@@ -32,7 +32,7 @@ function Product({ location: { props: {product}}}) {
             </div>
             <div className="col-md-6 mt-5 mt-md-2 text-center text-md-left">
               <h2 className="mb-3 mt-0">{product.name}</h2>
-              <p className="lead mt-2 mb-3 primary-color">{product.price}</p>
+              <p className="lead mt-2 mb-3 primary-color">{product.price} €</p>
               <h5 className="mt-4">Description</h5>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis velit vestibulum massa sollicitudin auctor. Cras ac venenatis orci. Ut consequat, purus ut ultrices ultricies, nisi sem ornare quam, sed ultricies mi nisl sit amet
                 purus.
