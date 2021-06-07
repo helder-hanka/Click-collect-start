@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
-const DB = "marketplace";
-const PASSWORD = "KelyanA0102!";
+require('dotenv').config();
+const { REACT_APP_DB,  REACT_APP_PASSWORD } = process.env
 
-const URI = `mongodb+srv://nosdi:${PASSWORD}@cluster-clickcollect.b0zxk.mongodb.net/${DB}?retryWrites=true&w=majority`
+// const URI = `mongodb+srv://nosdi:${PASSWORD}@cluster-clickcollect.b0zxk.mongodb.net/${DB}?retryWrites=true&w=majority`
+const URI = `mongodb+srv://nosdi:${REACT_APP_PASSWORD}@cluster-clickcollect.b0zxk.mongodb.net/${REACT_APP_DB}?retryWrites=true&w=majority`
 
 const mongoDBClient = {
     initialize: () => {
@@ -11,7 +12,7 @@ const mongoDBClient = {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
             })
-            client.then(() => console.log(`Successfully connected to ${DB}`))
+            client.then(() => console.log(`Successfully connected to ${REACT_APP_DB}`))
         } catch (err) {
             
         }

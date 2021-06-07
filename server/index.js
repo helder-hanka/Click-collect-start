@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express()
 app.use(cors())
 const PORT = 4000
+// const PORT = process.env.REACT_APP_PORT
 const mongoDBClient = require('./mongoClient')
 
 const { graphqlHTTP } = require('express-graphql');
